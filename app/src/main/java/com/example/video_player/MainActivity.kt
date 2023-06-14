@@ -22,6 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         val videoView = findViewById<VideoView>(binding.testView.id)
 
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(videoView)
+
         val uri: Uri = Uri.parse("android.resource://" + packageName + "/raw/test")
+
+        videoView.setMediaController(mediaController)
+        videoView.setVideoURI(uri)
+        videoView.requestFocus()
+        videoView.start()
     }
 }
